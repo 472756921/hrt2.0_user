@@ -17,7 +17,6 @@
         let highPressure = [];
         let lowPressure = [];
         data.map((it, i) => {
-          console.log(it);
           time.push(it.testTime);
           bloodSugar.push(it.bloodSugar);
           heartRate.push(it.heartRate);

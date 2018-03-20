@@ -13,7 +13,7 @@
         <Panel name="2">
           心脏彩超
           <div slot="content">
-            <div>LV：{{repData.la }}</div>
+            <div>LV：{{repData.lv }}</div>
             <div>LA：{{repData.la}}</div>
             <div>RV：{{repData.rv}}</div>
             <div>RA：{{repData.ra}}</div>

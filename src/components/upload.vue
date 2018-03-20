@@ -6,7 +6,6 @@
 <script>
   import { uploadImg } from '../interface';
 
-
   export default {
     props: ['type', 'dlength', 'num'],
     created(){
@@ -15,6 +14,7 @@
     data() {
       return {
         text: '',
+        ag: false,
       }
     },
     methods: {

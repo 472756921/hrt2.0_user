@@ -1,6 +1,6 @@
 <template>
     <div class="message">
-      <Avatar icon="person" size="large" style="float: right"/>
+      <Avatar :src="this.userHead" size="large" style="float: right"/>
       <div class="talkinfo usertalkinfo" v-html="message.content"></div>
       <div class="date">{{message.createDate}}</div>
     </div>
@@ -10,6 +10,14 @@
     export default {
       name: "by-user",
       props: ['message'],
+      data () {
+        return {
+          userHead: '',
+        };
+      },
+      created() {
+        this.userHead = localStorage.getItem('userHead');
+      },
       methods: {
         showIMG() {
           alert(1)

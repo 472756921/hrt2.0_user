@@ -126,7 +126,6 @@
             contentType: 'application/json;charset=UTF-8',
           }).then((res) => {
             this.$Message.success('上传成功');
-            console.log(url);
             this.data['data_'+type].push({id: id, imageUrl: url});
           }).catch((error) => {
             this.$Message.error('获取失败');

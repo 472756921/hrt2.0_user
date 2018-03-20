@@ -3,8 +3,8 @@
     <div class="title">购买记录</div>
     <div class="items">
       <Tabs value="name1">
-        <TabPane label="消费记录" name="name1"><shop_list :type="1"/></TabPane>
-        <TabPane label="充值记录" name="name2"><shop_list :type="0"/></TabPane>
+        <TabPane label="消费记录" name="name1"><shop_list :type="2"/></TabPane>
+        <TabPane label="充值记录" name="name2"><shop_list :type="3"/></TabPane>
         <TabPane label="服务余额" name="name3"><teamBalance/></TabPane>
       </Tabs>
     </div>

@@ -1,8 +1,8 @@
 <template>
-  <div class="conversation">
+  <div class="conversation" :loading="loading">
     <div class="title">医生工作室</div>
-    <talk ref="talk" :sID="sID"/>
-    <sendContent @sendMessage="sendMessages" :sID="sID"/>
+    <talk ref="talk" :sID="sID" @lodingOver="lodingF"/>
+    <sendContent @sendMessage="sendMessages" @upBen="upStart" :sID="sID"/>
   </div>
 </template>
 
@@ -14,15 +14,22 @@
     data() {
       return {
         sID: '',
+        loading: true,
       };
     },
-    created() {
+    created() {sta
       this.sID = this.$route.params.id;
     },
     components: { talk, sendContent },
     methods: {
       sendMessages(data) {
         this.$refs.talk.newMessage(data, new Date().pattern("yyyy-MM-dd hh:mm:ss"));
+      },
+      lodingF() {
+        this.loading = false;
+      },
+      upStart() {
+        this.loading = true;
       },
     },
   }

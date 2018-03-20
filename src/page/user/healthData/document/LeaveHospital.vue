@@ -1,7 +1,7 @@
 <template>
   <div class="leave-hospital" ref="leave_hospital">
     <div class="title">出院证明</div>
-    <img :src="'http://118.31.38.185'+it.imageUrl"  width="100%" v-for="(it, i) in data"/>
+    <img :src="'http://www.schrtinfo.com'+it.imageUrl"  width="100%" v-for="(it, i) in data"/>
     <uploadImg :dlength="data.length" :num="2" @getImgUrl="imgUpSuccess"/>
   </div>
 </template>
@@ -35,7 +35,6 @@
             contentType: 'application/json;charset=UTF-8',
           }).then((res) => {
             this.$Message.success('上传成功');
-            console.log(url);
             this.data.push({id: id, imageUrl: url});
           }).catch((error) => {
             this.$Message.error('获取失败');

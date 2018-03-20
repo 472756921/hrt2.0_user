@@ -3,12 +3,12 @@
       <div class="head">我的云设备</div>
 
       <div>
-        <div class="title">血糖仪 <Icon type="plus-round" @click.native='add(1)'></Icon></div>
+        <div class="title">血糖仪 <Icon type="plus-round" @click.native='add(2)'></Icon></div>
         <div class="noMessage" v-if="t.length == 0"><Icon type="social-buffer"></Icon> 暂无设备</div>
         <div v-for="(it, i) in t" class="devList"><Icon type="minus-circled" class="delBtn" @click.native="delDev(it, i, t)"></Icon> 编号：{{it.couldId}} <span class="date">{{it.createDate}}</span></div>
       </div>
       <div>
-        <div class="title">血压计 <Icon type="plus-round" @click.native='add(2)'></Icon></div>
+        <div class="title">血压计 <Icon type="plus-round" @click.native='add(1)'></Icon></div>
         <div class="noMessage" v-if="x.length == 0"><Icon type="social-buffer"></Icon> 暂无设备</div>
         <div v-for="(it, i) in x" class="devList"><Icon type="minus-circled" class="delBtn" @click.native="delDev(it, i, x)"></Icon> 编号：{{it.couldId}} <span class="date">{{it.createDate}}</span></div>
       </div>
@@ -39,11 +39,11 @@
       name: "dev",
       data() {
         return{
-          devClass: 2,
+          devClass: 1,
           addDevF: false,
           devNumver: '',
-          t: [],
-          x: [],
+          t: [],    //血糖
+          x: [],    //血压
         }
       },
       mounted() {
@@ -52,7 +52,7 @@
       },
       methods: {
         delDev(obj, i, list) {
-          let type = obj.type==0?'血糖仪':'血压计';
+          let type = obj.type==2?'血糖仪':'血压计';
           let c = confirm("确认删除 " + type + " 设备 " + obj.couldId + " 号?");
           if (c) {
             this.$ajax({
@@ -115,10 +115,10 @@
             let list = Object.values(res.data.data);
             list.map((it, i)=>{
               it.createDate = it.createDate.split(' ')[0];
-              if(it.type == 1) {
+              if(it.type == 2) {
                 this.t.push(it);
               }
-              if(it.type == 2) {
+              if(it.type == 1) {
                 this.x.push(it);
               }
             })

@@ -56,7 +56,7 @@
         let formData = new FormData();
         let fobj = file.files[0];
         formData.append('file', fobj);
-
+        this.$emit('upBen');
         reader.onload = (e) => {
           this.$ajax({
             method: 'POST',

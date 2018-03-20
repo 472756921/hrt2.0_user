@@ -35,7 +35,7 @@
       <div class="item Introduction">健管师简介：<span class="info">{{ADMessage.remarks}}</span></div>
       <div class="item">
         <img :src= 'showMessages.image.url' title="医生头像" alt="医生头像" width="49%" />
-        <img :src= '"http://118.31.38.185"+showMessages.healthTeacherImg.url' alt="健管师头像" title="健管师头像" width="49%"/>
+        <img :src= 'showMessages.healthTeacherImg.url' alt="健管师头像" title="健管师头像" width="49%"/>
       </div>
     </Modal>
 

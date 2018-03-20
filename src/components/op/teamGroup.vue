@@ -2,17 +2,18 @@
   <div>
     <Row class="team_group">
       <Col span="5">
-      <div class="head">
-        <Avatar icon="medkit" size="large" style='color: #fff;background: #43a3f0'/>
-        <div class="status" v-if="data.gradeType==1">游客</div>
-        <div class="status_a" v-if="data.gradeType!=1"><i class="iconfont icon-zhuanshi"></i> 会员</div>
-      </div>
+        <div class="head">
+          <Avatar icon="medkit" size="large" style='color: #fff;background: #43a3f0'/>
+          <div class="status" v-if="data.gradeType==1">游客</div>
+          <div class="status_a" v-if="data.gradeType!=1"><i class="iconfont icon-zhuanshi"></i> 会员</div>
+        </div>
       </Col>
       <Col span="18">
       <div class="content">
         <div class="tite">
           <span class="text" @click="show">{{this.data.name}}</span>
           <Button type="warning" size="small" class="btn btn_up" v-if="data.gradeType==1" @click="addTeam">升级</Button>
+          <Button type="error" size="small" class="btn btn_up" v-if="data.gradeType==1" @click="cancelGZ">取消关注</Button>
         </div>
         <div class="inter">
           {{this.data.remakrs}}
@@ -28,11 +29,12 @@
 <script>
   import team_opating from './team_opating';
   import line_block_l from '../line_block_l';
+  import {userDeleteTeam} from '../../interface';
 
   export default {
     name: "team-group",
     components: {team_opating, line_block_l},
-    props: ['data'],
+    props: ['data', 'index'],
     data() {
       return {};
     },
@@ -44,6 +46,19 @@
       },
       show() {
         this.$router.push({name: 'teamShow', params: {data: this.data}});
+      },
+      cancelGZ() {
+        this.$ajax({
+          method: 'GET',
+          url:userDeleteTeam()+this.data.id,
+          dataType: 'JSON',
+          contentType: 'application/json;charset=UTF-8',
+        }).then((res) => {
+          this.$Message.success('取消关注成功');
+          this.$emit('cancelGZ', this.index);
+        }).catch((error) => {
+          this.$Message.error('失败');
+        });
       },
     },
   }

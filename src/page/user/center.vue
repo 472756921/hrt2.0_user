@@ -67,6 +67,8 @@
               return false;
             }
             this.user = res.data.data;
+            const userImg = res.data.data.image.url;
+            localStorage.setItem('userHead', userImg);
             if(res.data.data.realName == '') {
               this.$router.push({name: 'userData'});
             }

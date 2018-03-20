@@ -40,6 +40,7 @@
           contentType: 'application/json;charset=UTF-8',
         }).then((res) => {
           this.messages = res.data.data;
+          this.$emit('lodingOver');
         }).catch((error) => {
           this.$Message.error('网络掉了，请您稍后');
         });
@@ -57,11 +58,12 @@
           dataType: 'JSON',
           contentType: 'application/json;charset=UTF-8',
         }).then((res) => {
+          this.messages.push({content: data, type: 1, createDate: date});
+          setTimeout(()=>{div.scrollTop = div.scrollHeight}, 100);
+          this.$emit('lodingOver');
         }).catch((error) => {
           this.$Message.error('获取失败');
         });
-        this.messages.push({content: data, type: 1, createDate: date});
-        setTimeout(()=>{div.scrollTop = div.scrollHeight}, 100)
       },
     },
   }

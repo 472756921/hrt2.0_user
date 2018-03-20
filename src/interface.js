@@ -39,6 +39,12 @@ export const userAddTeam = function () {
   const API = host + URL;
   return API;
 };
+//用户取消团队关注
+export const userDeleteTeam = function () {
+  const URL = '/customer/userDeleteTeam?teamId=';
+  const API = host + URL;
+  return API;
+};
 //公告list
 export const getList = function () {
   const URL = '/announcement/getRollAnnouncement?size=10&page=1';
