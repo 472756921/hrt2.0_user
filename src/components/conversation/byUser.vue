@@ -21,7 +21,7 @@
       methods: {
         showIMG() {
           alert(1)
-        },
+        }, pu
       },
     }
 </script>
