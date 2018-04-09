@@ -82,7 +82,7 @@
           this.$Message.warning('请完整填写个人信息');
           return false;
         }
-        this.user.birthday = this.user.birthday.pattern('yyyy-MM-dd');
+        this.user.birthday = new Date(this.user.birthday).pattern('yyyy-MM-dd');
         this.$ajax({
           method: 'post',
           url:updateUserMessage(),
@@ -104,11 +104,6 @@
           contentType: 'application/json;charset=UTF-8',
         }).then((res) => {
           this.user = res.data.data;
-          // this.user.idNumber = this.user.idNumber!=''?this.user.idNumber.substr(0,6) + '********' + this.user.idNumber.substr(14,4):'';
-          // this.user.phone = this.user.phone!=''?this.user.phone.substr(0,3) + '****' + this.user.phone.substr(7):'';
-          // this.user.urgentName = this.user.urgentName!=''?'*' + this.user.urgentName.substr(1):'';
-          // this.user.realName = this.user.realName!=''?'*' + this.user.realName.substr(1):'';
-          // this.user.urgentPhone =  this.user.urgentPhone!=''?this.user.urgentPhone.substr(0,3) + '****' + this.user.urgentPhone.substr(7):'';
         }).catch((error) => {
           this.$Message.error('获取失败');
         });
