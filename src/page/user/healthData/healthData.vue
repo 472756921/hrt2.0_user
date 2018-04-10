@@ -61,7 +61,7 @@
       },
       addData() {
         if(this.checkV()) {
-          this.s_data.testTime = new Date(this.s_data.testTime).pattern("yyyy-MM-dd HH:mm:ss");
+          this.s_data.testTime = this.s_data.testTime.pattern("yyyy-MM-dd HH:mm:ss");
           this.$ajax({
             method: 'POST',
             url:addHealthData(),
@@ -71,7 +71,7 @@
           }).then((res) => {
             if(res.data.code == 0) {
               this.$Message.success('上传成功');
-              this.s_data.testTime = new Date('this.s_data.testTime').pattern("yyyy-MM-dd HH:mm");
+              this.s_data.testTime = this.s_data.testTime.pattern("yyyy-MM-dd HH:mm");
               this.data.push( this.s_data );
             }
           }).catch((error) => {

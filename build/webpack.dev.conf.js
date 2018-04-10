@@ -48,24 +48,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     // -----------------预加载配置-------------
-    new CopyWebpackPlugin([{
-      from: 'static'
-    }]),
-    new PrerenderSpaPlugin(
-      //将渲染的文件放到dist目录下
-      path.join(__dirname, '../dist'),
-      //需要预渲染的路由信息
-      [ '/home','/center' ],
-      {
-        //在一定时间后再捕获页面信息，使得页面数据信息加载完成
-        captureAfterTime: 50000,
-        //忽略打包错误
-        ignoreJSErrors: true,
-        phantomOptions: '--web-security=false',
-        maxAttempts: 10,
-      }
-    ),
-    // -----------------预加载配置-------------
+    // new CopyWebpackPlugin([{
+    //   from: 'static'
+    // }]),
+    // new PrerenderSpaPlugin(
+    //   //将渲染的文件放到dist目录下
+    //   path.join(__dirname, '../dist'),
+    //   //需要预渲染的路由信息
+    //   [ '/home','/center' ],
+    //   {
+    //     //在一定时间后再捕获页面信息，使得页面数据信息加载完成
+    //     captureAfterTime: 50000,
+    //     //忽略打包错误
+    //     ignoreJSErrors: true,
+    //     phantomOptions: '--web-security=false',
+    //     maxAttempts: 10,
+    //   }
+    // ),
+    // // -----------------预加载配置-------------
 
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')

@@ -82,7 +82,7 @@
           this.$Message.warning('请完整填写个人信息');
           return false;
         }
-        this.user.birthday = new Date(this.user.birthday).pattern('yyyy-MM-dd');
+        this.user.birthday = this.user.birthday.pattern('yyyy-MM-dd');
         this.$ajax({
           method: 'post',
           url:updateUserMessage(),

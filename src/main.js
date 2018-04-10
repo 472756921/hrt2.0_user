@@ -5,6 +5,7 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import axios from 'axios';
+import './ut/dateTr';
 
 axios.defaults.withCredentials=true;
 Vue.config.productionTip = false;

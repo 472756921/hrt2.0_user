@@ -31,6 +31,10 @@
       </li>
     </ul>
     <div @click="ctre">创建用户</div>
+
+
+
+
   </div>
 </template>
 
@@ -41,6 +45,11 @@ export default {
     return {
       msg: '哈瑞特APP'
     }
+  },
+  mounted() {
+    console.log(new Date().getTime());
+    let a = new Date(1523246690579).pattern('yyyy-MM-dd');
+    console.log(a);
   },
   methods:{
     ctre() {
